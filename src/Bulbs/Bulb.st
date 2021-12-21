@@ -1,0 +1,42 @@
+USING Simatic.Ax.Io.Output;
+USING Simatic.Ax.Io.Input;
+
+
+NAMESPACE Simatic.Ax.SimpleControlModules
+    
+    /// Class to handle a bulb
+    CLASS Bulb
+        VAR PUBLIC
+            Output : IBinOutput;        
+        END_VAR
+
+        /// Switch the lamp on (value := TRUE) or off (value := FALSE)
+        /// value : Value to set
+        METHOD PUBLIC Set
+            VAR_INPUT
+                value : bool;                 
+            END_VAR
+                    
+            Output.SetQ(value := value);
+
+        END_METHOD
+
+        /// Switch the lamp on
+        METHOD PUBLIC SwitchOn
+            Output.SetQ(value := TRUE);
+        END_METHOD        
+
+        /// Switch the lamp off
+        METHOD PUBLIC SwitchOff
+            Output.SetQ(value := FALSE);
+        END_METHOD        
+
+        /// Toggle the lamp
+        METHOD PUBLIC Toggle
+            Output.Toggle();
+        END_METHOD        
+
+
+    END_CLASS
+END_NAMESPACE
+

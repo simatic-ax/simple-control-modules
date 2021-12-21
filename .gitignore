@@ -1,0 +1,6 @@
+.apax*
+[Bb]in/
+*.tgz
+library
+obj
+TestResult*
