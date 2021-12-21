@@ -1,11 +1,11 @@
 name: '@simatic-ax/simple-control-modules'
-version: 0.1.0
+version: 0.0.1
 author: Siemens AG
 type: lib
 variables:
   APAX_BUILD_ARGS:
     - --log Trace
-    - --debug
+    - --simulation
 targets:
   - '1500'
   - 'axunit-llvm'
@@ -18,10 +18,9 @@ scripts:
     - apax test
     - apax version $1
     - apax pack
-    # - apax publishlib
+    - apax publishlib
 devDependencies:
   '@ax/sdk': 1.0.127
-  "@simatic-ax/snippetscollection": 0.0.4
 registries:
   '@simatic-ax': 'https://npm.pkg.github.com/'
 files:
@@ -31,4 +30,7 @@ files:
   - 'src' # ship library with source
   # - 'library/1500/'   # ship library with binary
 dependencies:
-  "@simatic-ax/io": 0.1.2
+  "@simatic-ax/io": 0.1.1
+  "@ax/system-timer": 1.0.12
+  "@simatic-ax/mocks": 0.1.1
+  "@simatic-ax/snippetscollection": 0.0.3
