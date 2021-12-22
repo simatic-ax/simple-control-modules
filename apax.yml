@@ -4,6 +4,7 @@ author: Siemens AG
 type: lib
 variables:
   APAX_BUILD_ARGS:
+    - --debug
     - --log Trace
     - --simulation
 targets:
