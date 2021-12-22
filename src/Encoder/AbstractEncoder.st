@@ -1,8 +1,13 @@
+USING Simatic.Ax.Io.Input;
 NAMESPACE Simatic.Ax.SimpleControlModules
     /// <summary>
     /// Class to handle a counter with an A and B signal
     /// </summary>
     CLASS ABSTRACT AbstractEncoder IMPLEMENTS IEncoder
+
+        VAR PUBLIC
+            Modulo : DINT := DINT#2147483647;
+        END_VAR
 
         VAR PROTECTED
             _encoderHasMoved : BOOL;
@@ -32,7 +37,7 @@ NAMESPACE Simatic.Ax.SimpleControlModules
         /// Returns the actual encoder position
         /// Actual encoder position
         METHOD PUBLIC GetValue : DINT
-            GetValue := _encoderAbsCounter.CounterValue();
+            GetValue := _encoderAbsCounter.CounterValue() MOD Modulo;
         END_METHOD  
 
         /// Evaluate encoder signals
@@ -49,7 +54,7 @@ NAMESPACE Simatic.Ax.SimpleControlModules
 
         /// Counts the relative pulses since the last Reset or ResetRelative command
         METHOD PUBLIC RelativeCount : DINT
-            RelativeCount := _encoderRelativeCounter.CounterValue();
+            RelativeCount := _encoderRelativeCounter.CounterValue() MOD Modulo;
         END_METHOD
 
         /// Reset the relative counter
@@ -65,5 +70,9 @@ NAMESPACE Simatic.Ax.SimpleControlModules
             _countMode := mode;
         END_METHOD
 
+
+        METHOD PUBLIC GetModulo : DINT
+            GetModulo := Modulo;
+        END_METHOD
 END_CLASS
 END_NAMESPACE

@@ -20,5 +20,7 @@ NAMESPACE Simatic.Ax.SimpleControlModules
         END_METHOD
         METHOD ResetRelative
         END_METHOD
+        METHOD GetModulo : DINT
+        END_METHOD
     END_INTERFACE
 END_NAMESPACE
