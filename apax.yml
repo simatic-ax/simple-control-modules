@@ -1,11 +1,11 @@
 name: '@simatic-ax/simple-control-modules'
-version: 0.0.1
+version: 0.0.2
 author: Siemens AG
 type: lib
 variables:
   APAX_BUILD_ARGS:
     - --log Trace
-    - --simulation
+    - --debug
 targets:
   - '1500'
   - 'axunit-llvm'
