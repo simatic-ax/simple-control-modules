@@ -1,5 +1,5 @@
 name: '@simatic-ax/simple-control-modules'
-version: 0.0.2
+version: 0.0.3
 author: Siemens AG
 type: lib
 variables:
@@ -30,4 +30,4 @@ files:
   - 'src' # ship library with source
   # - 'library/1500/'   # ship library with binary
 dependencies:
-  "@simatic-ax/io": 0.1.1
+  "@simatic-ax/io": 0.1.2

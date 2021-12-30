@@ -351,15 +351,9 @@
   resolved "https://apax-prod-734703289705.d.codeartifact.eu-central-1.amazonaws.com:443/npm/ax/@ax/third-party-licenses-st-compiler/-/third-party-licenses-st-compiler-2.1.36.tgz#bcae26288e75d9e784ef3721c6a89b69b96e8e9e"
   integrity sha512-Ff65DOb1ndNkn90o35LaPss7guw4hlbQkYQzkxVvFMp/GJJuL3eUfc+1kpcbBXBFWiyhM8R34hFPMcK5gZPYRA==
 
-"@simatic-ax/io@0.1.1":
-  version "0.1.1"
-  resolved "https://npm.pkg.github.com/download/@simatic-ax/io/0.1.1/ecfd2f7ee4d4fe3bc45451ae01b76f28a4b7cf9980cc67b1196988723a40f40b#f9ab9f58e7062f257e573a852d88f50a0a23e946"
-  integrity sha512-CoPqx/TzLaNHegEttza1BIpWT51FBcdtK67seug364J1ztjpQ5C0us9YoVfS6lwKzTVDMfvsEF5vbBBsCwgJvQ==
+"@simatic-ax/io@0.1.2":
+  version "0.1.2"
+  resolved "https://npm.pkg.github.com/download/@simatic-ax/io/0.1.2/cccc8578a6457259624aa29e95b39dcf370a9740047c3674bc21f5afdfa4ff6d#32cc0c677a41aee0d6d708201b8a119c465cd244"
+  integrity sha512-thronyBmoQMDUrUgLKYRVxPJLOBdiqdS9G2+luXMGfRq6OaqpkoAxOBpccmALLiz2Wm/jOpXCjqIB4vtJRY1QA==
   dependencies:
     "@ax/system-timer" "1.0.12"
-    "@simatic-ax/mocks" "0.1.1"
-
-"@simatic-ax/mocks@0.1.1":
-  version "0.1.1"
-  resolved "https://npm.pkg.github.com/download/@simatic-ax/mocks/0.1.1/ac68cab01ebeabeea6e39e9eb1e2436bceb0ed98e2e92de2d9e870f75c66ac7e#4ecb4f4a89cade6bfca1cdc33eb5a610d0ab4293"
-  integrity sha512-P6DmR1gtpUzhvKxQhXJwnIK8RKD3tux+IQS6boaYsIXIb2H2uhNrm/1nwb6EdDu9syiYSVVmrfywuyWh0dNvLQ==
