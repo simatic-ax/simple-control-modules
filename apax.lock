@@ -357,3 +357,8 @@
   integrity sha512-thronyBmoQMDUrUgLKYRVxPJLOBdiqdS9G2+luXMGfRq6OaqpkoAxOBpccmALLiz2Wm/jOpXCjqIB4vtJRY1QA==
   dependencies:
     "@ax/system-timer" "1.0.12"
+
+"@simatic-ax/snippetscollection@0.0.4":
+  version "0.0.4"
+  resolved "https://npm.pkg.github.com/download/@simatic-ax/snippetscollection/0.0.4/538ff2699372967e4d3d217100a579371453e8633ba2aaf7c1da3671cb7be87f#99cc10bca20c1729bce96ddf3b71c0f00b388058"
+  integrity sha512-GBlhVHePHrQyni6W3G1uxZkRq5nwpMEhJWGnB5bD4HJCwSG8wx4Dgk1WksYw5VbnnZXBZvnS8KYZoQlo4B3mIg==
