@@ -6,7 +6,7 @@
 
 Enter:
 ```cli
-apax add @ax-showcase/simple-control-modules
+apax add @simatic-ax/simple-control-modules
 ```
 > to install this package you need to login into the GitHub registry. You'll find more information [here](https://github.com/simatic-ax/.github/blob/main/doc/personalaccesstoken.md) 
 
