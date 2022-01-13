@@ -1,95 +1,69 @@
-// USING AxUnit;
-// USING Simatic.Ax.SimpleControlModules;
+USING AxUnit.Assert;
+USING Simatic.Ax.Io.Output;
+USING Simatic.Ax.Io;
+USING AxUnit.Assert;
 
-// NAMESPACE Simatic.Ax.SimpleControlModules.Test
+NAMESPACE Simatic.Ax.SimpleControlModules.Test
+    {TestFixture}
+    CLASS TestLightStackRdYeGnBl
+        VAR PRIVATE
+            o : LightStackRdYeGnBl;
+            QRed : BinOutput;
+            QYellow : BinOutput;
+            QGreen : BinOutput;
+            QBlue : BinOutput;
+        END_VAR
 
-//     {Test}
-//     FUNCTION TestLightStackInitialAllLampsOff
-//         VAR_EXTERNAL
-//             ls1 : LightStackRdYeGn;
-//         END_VAR
-//         VAR_TEMP            
-//             qRd, qYe, qGn : BOOL;
-//         END_VAR;
+        METHOD PRIVATE Init
+            o.QRed := QRed;
+            o.QYellow := QYellow;
+            o.QGreen := QGreen;
+            o.QBlue := QBlue;
+        END_METHOD
 
-//         ls1.WriteOutputs(qRd, qYe, qGn);
-//         AxUnit.Assert.Equal(expected := FALSE, actual := qRd);
-//         AxUnit.Assert.Equal(expected := FALSE, actual := qYe);
-//         AxUnit.Assert.Equal(expected := FALSE, actual := qGn);
-//     END_FUNCTION
-
-//     {Test}
-//     FUNCTION TestLightStackOnRedAllOthersOff
-//         VAR_EXTERNAL
-//             ls2 : LightStackRdYeGn;
-//         END_VAR
-//         VAR_TEMP            
-//             qRd, qYe, qGn : BOOL;
-//         END_VAR;
-
-//         ls2.SwitchOnRd();
-//         ls2.WriteOutputs(qRd, qYe, qGn);
-//         AxUnit.Assert.Equal(expected := TRUE, actual := qRd);
-//         AxUnit.Assert.Equal(expected := FALSE, actual := qYe);
-//         AxUnit.Assert.Equal(expected := FALSE, actual := qGn);
-//     END_FUNCTION
-
-//     {Test}
-//     FUNCTION TestLightStackOnYeAllOthersOff
-//         VAR_EXTERNAL
-//             ls3 : LightStackRdYeGn;
-//         END_VAR
-//         VAR_TEMP            
-//             qRd, qYe, qGn : BOOL;
-//         END_VAR;
-
-//         ls3.SwitchOnYe();
-//         ls3.WriteOutputs(qRd, qYe, qGn);
-//         AxUnit.Assert.Equal(expected := FALSE, actual := qRd);
-//         AxUnit.Assert.Equal(expected := TRUE, actual := qYe);
-//         AxUnit.Assert.Equal(expected := FALSE, actual := qGn);
-//     END_FUNCTION
-
-//     {Test}
-//     FUNCTION TestLightStackOnGnAllOthersOff
-//         VAR_EXTERNAL
-//             ls4 : LightStackRdYeGn;
-//         END_VAR
-//         VAR_TEMP            
-//             qRd, qYe, qGn : BOOL;
-//         END_VAR;
-
-//         ls4.SwitchOnGn();
-//         ls4.WriteOutputs(qRd, qYe, qGn);
-//         AxUnit.Assert.Equal(expected := FALSE, actual := qRd);
-//         AxUnit.Assert.Equal(expected := FALSE, actual := qYe);
-//         AxUnit.Assert.Equal(expected := TRUE, actual := qGn);
-//     END_FUNCTION
-
-//     {Test}
-//     FUNCTION TestLightStackAllOnAndAllOff
-//         VAR_EXTERNAL
-//             ls5 : LightStackRdYeGn;
-//         END_VAR
-//         VAR_TEMP            
-//             qRd, qYe, qGn : BOOL;
-//         END_VAR;
-
-//         ls5.SwitchOnRd();
-//         ls5.SwitchOnYe();
-//         ls5.SwitchOnGn();
-//         ls5.WriteOutputs(qRd, qYe, qGn);
-//         AxUnit.Assert.Equal(expected := TRUE, actual := qRd);
-//         AxUnit.Assert.Equal(expected := TRUE, actual := qYe);
-//         AxUnit.Assert.Equal(expected := TRUE, actual := qGn);
-
-//         ls5.SwitchOffRd();
-//         ls5.SwitchOffYe();
-//         ls5.SwitchOffGn();
-//         ls5.WriteOutputs(qRd, qYe, qGn);
-//         AxUnit.Assert.Equal(expected := FALSE, actual := qRd);
-//         AxUnit.Assert.Equal(expected := FALSE, actual := qYe);
-//         AxUnit.Assert.Equal(expected := FALSE, actual := qGn);
-//     END_FUNCTION
-
-// END_NAMESPACE
+        {Test}
+        METHOD PUBLIC InitialState
+            THIS.Init();
+            Equal(expected := FALSE, actual := o.GetState(Colors#Red));
+            Equal(expected := FALSE, actual := o.GetState(Colors#Yellow));
+            Equal(expected := FALSE, actual := o.GetState(Colors#Green));
+            Equal(expected := FALSE, actual := o.GetState(Colors#Blue));
+        END_METHOD
+        {Test}
+        METHOD PUBLIC TestSwitchOnRed_Expect_True
+            THIS.Init();
+            Equal(expected := FALSE, actual := o.GetState(Colors#Red));
+            o.SwitchOn(Colors#Red);
+            Equal(expected := TRUE, actual := o.GetState(Colors#Red));
+            o.SwitchOff(Colors#Red);
+            Equal(expected := FALSE, actual := o.GetState(Colors#Red));
+        END_METHOD
+        {Test}
+        METHOD PUBLIC TestSwitchOnyellowExpect_True
+            THIS.Init();
+            Equal(expected := FALSE, actual := o.GetState(Colors#Yellow));
+            o.SwitchOn(Colors#Yellow);
+            Equal(expected := TRUE, actual := o.GetState(Colors#Yellow));
+            o.SwitchOff(Colors#Yellow);
+            Equal(expected := FALSE, actual := o.GetState(Colors#Yellow));
+        END_METHOD
+        {Test}
+        METHOD PUBLIC TestSwitchOnGreenExpect_True
+            THIS.Init();
+            Equal(expected := FALSE, actual := o.GetState(Colors#Green));
+            o.SwitchOn(Colors#Green);
+            Equal(expected := TRUE, actual := o.GetState(Colors#Green));
+            o.SwitchOff(Colors#Green);
+            Equal(expected := FALSE, actual := o.GetState(Colors#Green));
+        END_METHOD
+        {Test}
+        METHOD PUBLIC TestSwitchOnBlueExpect_True
+            THIS.Init();
+            Equal(expected := FALSE, actual := o.GetState(Colors#Blue));
+            o.SwitchOn(Colors#Blue);
+            Equal(expected := TRUE, actual := o.GetState(Colors#Blue));
+            o.SwitchOff(Colors#Blue);
+            Equal(expected := FALSE, actual := o.GetState(Colors#Blue));
+        END_METHOD
+    END_CLASS
+END_NAMESPACE
