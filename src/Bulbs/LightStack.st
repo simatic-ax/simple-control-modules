@@ -7,10 +7,10 @@ NAMESPACE Simatic.Ax.SimpleControlModules
     
     CLASS LightStackRdYeGnBl
         VAR PUBLIC
-            QRed : BinOutput;
-            QYellow : BinOutput;
-            QGreen : BinOutput;
-            QBlue : BinOutput;
+            QRed : IBinOutput;
+            QYellow : IBinOutput;
+            QGreen : IBinOutput;
+            QBlue : IBinOutput;
         END_VAR
         
         /// Switch on the lamp of color c
