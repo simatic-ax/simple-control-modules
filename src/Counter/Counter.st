@@ -3,13 +3,13 @@ NAMESPACE Simatic.Ax.SimpleControlModules
     /// Class to handle a counter
     CLASS Counter IMPLEMENTS ICounter
         VAR PUBLIC
-            UpperLimit : DINT;
-            LowerLimit : DINT;        
+            UpperLimit : LINT;
+            LowerLimit : LINT;        
         END_VAR
         
         VAR
             _counterIsEnabled : BOOL := TRUE;
-            _actualCounterValue : DINT;
+            _actualCounterValue : LINT;
             _counterConfigError : BOOL;
         END_VAR
 
@@ -20,8 +20,8 @@ NAMESPACE Simatic.Ax.SimpleControlModules
         /// (TRUE = counter configuration succeded, FALSE = Error counter configuration
         METHOD PUBLIC Config : BOOL
             VAR_INPUT
-                ll : DINT;
-                ul : DINT;
+                ll : LINT;
+                ul : LINT;
             END_VAR
             IF (ul >= ll) THEN
                 UpperLimit := ul;   
@@ -38,13 +38,13 @@ NAMESPACE Simatic.Ax.SimpleControlModules
         /// value : Value to set the actual counter value
         METHOD PUBLIC SetCounterValue
             VAR_INPUT
-                value : DINT := DINT#0;
+                value : LINT := LINT#0;
             END_VAR
             _actualCounterValue := value;            
         END_METHOD
 
         /// Returns actual counter value
-        METHOD PUBLIC CounterValue : DINT
+        METHOD PUBLIC CounterValue : LINT
             CounterValue := _actualCounterValue;
         END_METHOD
 
@@ -52,7 +52,7 @@ NAMESPACE Simatic.Ax.SimpleControlModules
         /// increment : Value to increment the counter
         METHOD PUBLIC CountForward
             VAR_INPUT
-                increment : DINT := DINT#1;
+                increment : LINT := LINT#1;
             END_VAR
              _actualCounterValue := _actualCounterValue + increment;
         END_METHOD
@@ -61,7 +61,7 @@ NAMESPACE Simatic.Ax.SimpleControlModules
         /// decrement : Value to decrement the counter
         METHOD PUBLIC CountReverse
             VAR_INPUT
-                decrement : DINT := DINT#1;
+                decrement : LINT := LINT#1;
             END_VAR
             _actualCounterValue := _actualCounterValue - decrement;
         END_METHOD

@@ -6,7 +6,7 @@ NAMESPACE Simatic.Ax.SimpleControlModules
     CLASS ABSTRACT AbstractEncoder IMPLEMENTS IEncoder
 
         VAR PUBLIC
-            Modulo : DINT := DINT#2147483647;
+            Modulo : LINT := LINT#9223372036854775807;
         END_VAR
 
         VAR PROTECTED
@@ -19,8 +19,8 @@ NAMESPACE Simatic.Ax.SimpleControlModules
 
         /// Reset encoder position to zero
         METHOD PUBLIC Reset
-            _encoderAbsCounter.SetCounterValue(DINT#0);
-            _encoderRelativeCounter.SetCounterValue(DINT#0);           
+            _encoderAbsCounter.SetCounterValue(LINT#0);
+            _encoderRelativeCounter.SetCounterValue(LINT#0);           
             _actualDirection := Direction#Undefined; 
         END_METHOD
 
@@ -28,7 +28,7 @@ NAMESPACE Simatic.Ax.SimpleControlModules
         /// value : Position which is set
         METHOD PUBLIC SetValue
             VAR_INPUT
-                value : DINT;
+                value : LINT;
             END_VAR
                 _encoderAbsCounter.SetCounterValue(value := value);
                 _encoderRelativeCounter.SetCounterValue(value := 0);
@@ -36,7 +36,7 @@ NAMESPACE Simatic.Ax.SimpleControlModules
 
         /// Returns the actual encoder position
         /// Actual encoder position
-        METHOD PUBLIC GetValue : DINT
+        METHOD PUBLIC GetValue : LINT
             GetValue := _encoderAbsCounter.CounterValue() MOD Modulo;
         END_METHOD  
 
@@ -53,13 +53,13 @@ NAMESPACE Simatic.Ax.SimpleControlModules
 
 
         /// Counts the relative pulses since the last Reset or ResetRelative command
-        METHOD PUBLIC RelativeCount : DINT
+        METHOD PUBLIC RelativeCount : LINT
             RelativeCount := _encoderRelativeCounter.CounterValue() MOD Modulo;
         END_METHOD
 
         /// Reset the relative counter
         METHOD PUBLIC ResetRelative
-            _encoderRelativeCounter.SetCounterValue(DINT#0);
+            _encoderRelativeCounter.SetCounterValue(LINT#0);
         END_METHOD
 
     
@@ -71,7 +71,7 @@ NAMESPACE Simatic.Ax.SimpleControlModules
         END_METHOD
 
 
-        METHOD PUBLIC GetModulo : DINT
+        METHOD PUBLIC GetModulo : LINT
             GetModulo := Modulo;
         END_METHOD
 END_CLASS
