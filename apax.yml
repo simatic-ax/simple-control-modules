@@ -1,5 +1,5 @@
 name: '@simatic-ax/simple-control-modules'
-version: 0.0.5
+version: 0.1.0
 author: Siemens AG
 type: lib
 variables:
@@ -18,7 +18,7 @@ scripts:
     - apax test
     - apax version $1
     - apax pack
-    - apax publishlib
+    # - apax publishlib
 devDependencies:
   '@ax/sdk': 1.0.127
   "@simatic-ax/snippetscollection": 0.0.4
