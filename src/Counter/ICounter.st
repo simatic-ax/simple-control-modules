@@ -2,15 +2,15 @@ NAMESPACE Simatic.Ax.SimpleControlModules
     INTERFACE ICounter
         METHOD CountForward
             VAR_INPUT
-               increment : DINT;
+               increment : LINT;
             END_VAR
         END_METHOD
         METHOD CountReverse
             VAR_INPUT
-                decrement : DINT;
+                decrement : LINT;
             END_VAR
         END_METHOD
-        METHOD CounterValue : DINT
+        METHOD CounterValue : LINT
         END_METHOD
         METHOD UpperLimitReached : BOOL
         END_METHOD        

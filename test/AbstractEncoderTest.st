@@ -24,25 +24,25 @@ NAMESPACE Simatic.Ax.SimpleControlModules.Test
         {Test}
         METHOD PUBLIC SetValue_to_555_expect_GetValue_555
             
-            enc.SetValue(DINT#555);
+            enc.SetValue(LINT#555);
         
-            Equal(expected := DINT#555, actual := enc.GetValue());
-            Equal(expected := DINT#0, actual := enc.RelativeCount());
+            Equal(expected := LINT#555, actual := enc.GetValue());
+            Equal(expected := LINT#0, actual := enc.RelativeCount());
             enc.Reset();        
             
-            Equal(expected := DINT#0, actual := enc.GetValue());
-            Equal(expected := DINT#0, actual := enc.RelativeCount());
+            Equal(expected := LINT#0, actual := enc.GetValue());
+            Equal(expected := LINT#0, actual := enc.RelativeCount());
         END_METHOD
 
 
         {Test}
         METHOD PUBLIC Test_Reset_Expect_value_0
 
-            enc.SetValue(DINT#555);
+            enc.SetValue(LINT#555);
             enc.Reset();        
             
-            Equal(expected := DINT#0, actual := enc.GetValue());
-            Equal(expected := DINT#0, actual := enc.RelativeCount());
+            Equal(expected := LINT#0, actual := enc.GetValue());
+            Equal(expected := LINT#0, actual := enc.RelativeCount());
         END_METHOD
 
     END_CLASS

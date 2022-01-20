@@ -32,8 +32,8 @@ NAMESPACE Simatic.Ax.SimpleControlModules.Test
                     enc.Evaluate();
                 END_FOR;
                
-                Equal(expected := DINT#13, actual := enc.GetValue());
-                Equal(expected := DINT#13, actual := enc.RelativeCount());
+                Equal(expected := LINT#13, actual := enc.GetValue());
+                Equal(expected := LINT#13, actual := enc.RelativeCount());
                 ;
         END_METHOD
 
@@ -46,7 +46,6 @@ NAMESPACE Simatic.Ax.SimpleControlModules.Test
             
             enc.SignalA := sigA;
             enc.SignalB := sigB;
-
             enc.SetDirection(mode := CountMode#Reverse);
             FOR i := 0 TO 13 DO
                 sigA.ReadCyclic(signal := signalsA[i]);
@@ -55,8 +54,8 @@ NAMESPACE Simatic.Ax.SimpleControlModules.Test
                 enc.Evaluate();
             END_FOR;
             
-            Equal(expected := DINT#-13, actual := enc.GetValue());
-            Equal(expected := DINT#-13, actual := enc.RelativeCount());
+            Equal(expected := LINT#-13, actual := enc.GetValue());
+            Equal(expected := LINT#-13, actual := enc.RelativeCount());
             ;
         END_METHOD  
 
@@ -69,16 +68,15 @@ NAMESPACE Simatic.Ax.SimpleControlModules.Test
 
                 // Swap AB 
                 enc.SignalA := sigB;
-                enc.SignalB := sigA;
-
+                enc.SignalB := sigA;                
                 FOR i := 0 TO 13 DO
                     sigA.ReadCyclic(signal := signalsA[i]);
                     sigB.ReadCyclic(signal := signalsB[i]);
                     enc.Evaluate();
                 END_FOR;
-               
-                Equal(expected := DINT#-13, actual := enc.GetValue());
-                Equal(expected := DINT#-13, actual := enc.RelativeCount());
+                
+                Equal(expected := LINT#-13, actual := enc.GetValue());
+                Equal(expected := LINT#-13, actual := enc.RelativeCount());
                 ;
         END_METHOD
 
@@ -98,15 +96,15 @@ NAMESPACE Simatic.Ax.SimpleControlModules.Test
                 enc.Evaluate();
             END_FOR;
 
-            Equal(expected := DINT#9, actual := enc.GetValue());
+            Equal(expected := LINT#9, actual := enc.GetValue());
 
             FOR i := 9 TO 0 BY -1 DO
                 sigA.ReadCyclic(signal := signalsA[i]);
                 sigB.ReadCyclic(signal := signalsB[i]);
                 enc.Evaluate();
             END_FOR;
-            Equal(expected := DINT#0, actual := enc.GetValue());
-            Equal(expected := DINT#0, actual := enc.RelativeCount());
+            Equal(expected := LINT#0, actual := enc.GetValue());
+            Equal(expected := LINT#0, actual := enc.RelativeCount());
             ;
         END_METHOD  
 
@@ -126,7 +124,7 @@ NAMESPACE Simatic.Ax.SimpleControlModules.Test
 
                 enc.Evaluate();
             END_FOR;
-            Equal(expected := DINT#9, actual := enc.GetValue());
+            Equal(expected := LINT#9, actual := enc.GetValue());
 
             enc.SetDirection(mode := CountMode#Reverse);
             FOR i := 10 TO 13 DO
@@ -134,8 +132,8 @@ NAMESPACE Simatic.Ax.SimpleControlModules.Test
                 sigB.ReadCyclic(signal := signalsB[i]);
             enc.Evaluate();
             END_FOR;
-            Equal(expected := DINT#5, actual := enc.GetValue());
-            Equal(expected := DINT#5, actual := enc.RelativeCount());
+            Equal(expected := LINT#5, actual := enc.GetValue());
+            Equal(expected := LINT#5, actual := enc.RelativeCount());
             ;
         END_METHOD  
 
@@ -149,7 +147,7 @@ NAMESPACE Simatic.Ax.SimpleControlModules.Test
 
 
             enc.Reset();
-            Equal(expected := DINT#0, actual := enc.GetValue());
+            Equal(expected := LINT#0, actual := enc.GetValue());
         END_METHOD  
 
         {Test}
@@ -166,8 +164,9 @@ NAMESPACE Simatic.Ax.SimpleControlModules.Test
                 sigA.ReadCyclic(signal := signalsA[i]);
                 sigB.ReadCyclic(signal := signalsB[i]);
             enc.Evaluate();
-            END_FOR;            Equal(expected := DINT#9, actual := enc.GetValue());
-            Equal(expected := DINT#9, actual := enc.RelativeCount());
+            END_FOR;            
+            Equal(expected := LINT#9, actual := enc.GetValue());
+            Equal(expected := LINT#9, actual := enc.RelativeCount());
             enc.ResetRelative();
             
             FOR i := 10 TO 13 DO
@@ -175,8 +174,8 @@ NAMESPACE Simatic.Ax.SimpleControlModules.Test
                 sigB.ReadCyclic(signal := signalsB[i]);
             enc.Evaluate();
             END_FOR;
-            Equal(expected := DINT#13, actual := enc.GetValue());
-            Equal(expected := DINT#4, actual := enc.RelativeCount());
+            Equal(expected := LINT#13, actual := enc.GetValue());
+            Equal(expected := LINT#4, actual := enc.RelativeCount());
             ;
         END_METHOD  
 

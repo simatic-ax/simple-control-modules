@@ -35,6 +35,9 @@ NAMESPACE Simatic.Ax.SimpleControlModules.Test
             Equal(expected := FALSE, actual := o.GetState(Colors#Red));
             o.SwitchOn(Colors#Red);
             Equal(expected := TRUE, actual := o.GetState(Colors#Red));
+            Equal(expected := FALSE, actual := o.GetState(Colors#Yellow));
+            Equal(expected := FALSE, actual := o.GetState(Colors#Green));
+            Equal(expected := FALSE, actual := o.GetState(Colors#Blue));
             o.SwitchOff(Colors#Red);
             Equal(expected := FALSE, actual := o.GetState(Colors#Red));
         END_METHOD
@@ -43,7 +46,10 @@ NAMESPACE Simatic.Ax.SimpleControlModules.Test
             THIS.Init();
             Equal(expected := FALSE, actual := o.GetState(Colors#Yellow));
             o.SwitchOn(Colors#Yellow);
+            Equal(expected := FALSE, actual := o.GetState(Colors#Red));
             Equal(expected := TRUE, actual := o.GetState(Colors#Yellow));
+            Equal(expected := FALSE, actual := o.GetState(Colors#Green));
+            Equal(expected := FALSE, actual := o.GetState(Colors#Blue));
             o.SwitchOff(Colors#Yellow);
             Equal(expected := FALSE, actual := o.GetState(Colors#Yellow));
         END_METHOD
@@ -52,7 +58,10 @@ NAMESPACE Simatic.Ax.SimpleControlModules.Test
             THIS.Init();
             Equal(expected := FALSE, actual := o.GetState(Colors#Green));
             o.SwitchOn(Colors#Green);
+            Equal(expected := FALSE, actual := o.GetState(Colors#Red));
+            Equal(expected := FALSE, actual := o.GetState(Colors#Yellow));
             Equal(expected := TRUE, actual := o.GetState(Colors#Green));
+            Equal(expected := FALSE, actual := o.GetState(Colors#Blue));
             o.SwitchOff(Colors#Green);
             Equal(expected := FALSE, actual := o.GetState(Colors#Green));
         END_METHOD
@@ -61,6 +70,9 @@ NAMESPACE Simatic.Ax.SimpleControlModules.Test
             THIS.Init();
             Equal(expected := FALSE, actual := o.GetState(Colors#Blue));
             o.SwitchOn(Colors#Blue);
+            Equal(expected := FALSE, actual := o.GetState(Colors#Red));
+            Equal(expected := FALSE, actual := o.GetState(Colors#Yellow));
+            Equal(expected := FALSE, actual := o.GetState(Colors#Green));
             Equal(expected := TRUE, actual := o.GetState(Colors#Blue));
             o.SwitchOff(Colors#Blue);
             Equal(expected := FALSE, actual := o.GetState(Colors#Blue));
