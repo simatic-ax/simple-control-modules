@@ -528,11 +528,11 @@
     "integrity": "sha512-YlWfJaWdoysBJAW4BdXx6cZ2NeXBhrTH5NOSIsRUsfvJXxBzfP+qmdLeE3M4Gzu8Z63PAN5Jj+NCcG+aDwQ1nw=="
   },
   "@simatic-ax/io": {
-    "version": "0.1.2",
-    "resolved": "https://npm.pkg.github.com/download/@simatic-ax/io/0.1.2/32cc0c677a41aee0d6d708201b8a119c465cd244",
-    "integrity": "sha512-thronyBmoQMDUrUgLKYRVxPJLOBdiqdS9G2+luXMGfRq6OaqpkoAxOBpccmALLiz2Wm/jOpXCjqIB4vtJRY1QA==",
+    "version": "1.0.0",
+    "resolved": "https://npm.pkg.github.com/download/@simatic-ax/io/1.0.0/82a6b6f29728e8c4b2059e42135389010a068573",
+    "integrity": "sha512-zLMT6EeAclLUuYquxpeW3kaOOzF+QaIRBsz3D2IR5sw2UDpz5vf/ug35HwBFSx9vIU7Ilt6RtGyxq4fSmGKVaQ==",
     "dependencies": {
-      "@ax/system-timer": "1.0.12"
+      "@ax/system-timer": "2.0.1"
     }
   },
   "@simatic-ax/mocks": {
