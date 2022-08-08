@@ -23,5 +23,5 @@ files:
   - 'src' # ship library with source
   # - 'library/1500/'   # ship library with binary
 dependencies:
-  "@simatic-ax/io": 0.1.2
+  "@simatic-ax/io": 1.0.0
   "@ax/system-timer": 2.0.1
