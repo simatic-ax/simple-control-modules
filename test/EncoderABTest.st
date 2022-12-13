@@ -3,7 +3,7 @@ USING AxUnit.Assert;
 USING Simatic.Ax.SimpleControlModules;
 NAMESPACE Simatic.Ax.SimpleControlModules.Test
     {TestFixture}
-    CLASS Test_EncoderAB IMPLEMENTS AxUnit.Mocking.IPayload
+    CLASS Test_EncoderAB // IMPLEMENTS AxUnit.Mocking.IPayload
         
         VAR
             enc : EncoderAB;

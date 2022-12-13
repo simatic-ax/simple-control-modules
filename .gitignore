@@ -1,6 +1,8 @@
-.apax*
-[Bb]in/
-*.tgz
-library
+.apax
+.env
+bin
 obj
-TestResult*
+TestResult
+*.tgz
+assets
+apax-lock.json

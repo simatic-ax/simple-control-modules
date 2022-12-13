@@ -4,7 +4,7 @@ USING Simatic.Ax.SimpleControlModules;
 
 NAMESPACE Simatic.Ax.SimpleControlModules.Test
     {TestFixture}
-    CLASS Test_EncoderA IMPLEMENTS AxUnit.Mocking.IPayload
+    CLASS Test_EncoderA // IMPLEMENTS AxUnit.Mocking.IPayload
         
         VAR
             enc : EncoderA;

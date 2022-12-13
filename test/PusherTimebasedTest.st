@@ -5,7 +5,7 @@ USING Simatic.Ax.SimpleControlModules;
 
 NAMESPACE Simatic.Ax.SimpleControlModules.Test
     {TestFixture}
-    CLASS Test_PusherTimeBased IMPLEMENTS AxUnit.Mocking.IPayload
+    CLASS Test_PusherTimeBased // IMPLEMENTS AxUnit.Mocking.IPayload
         
         VAR
             pusher : PusherTimeBased := (OnDuration := T#5s);
@@ -38,16 +38,16 @@ NAMESPACE Simatic.Ax.SimpleControlModules.Test
             Equal(expected := TRUE, actual :=  sig.IsOn());
         END_METHOD    
 
-        {Test}
-        METHOD PUBLIC Retract_After_time
-            THIS.Push_Expect_State_Pushing_Q_TRUE();
-            AxUnit.Mocking.Mock(name_of(System.Timer.OnDelay), name_of(Simatic.Ax.Mocks.OnDelayMock_true));
-            pusher.Evaluate();
-            Equal(expected := TRUE, actual :=  pusher.GetState() = PusherState#Retracting);
-            Equal(expected := FALSE, actual :=  sig.IsOn());
-            pusher.Evaluate();
-            Equal(expected := TRUE, actual :=  pusher.GetState() = PusherState#Retracted);
-        END_METHOD
+        // {Test}
+        // METHOD PUBLIC Retract_After_time
+        //     THIS.Push_Expect_State_Pushing_Q_TRUE();
+        //     AxUnit.Mocking.Mock(name_of(System.Timer.OnDelay), name_of(Simatic.Ax.Mocks.OnDelayMock_true));
+        //     pusher.Evaluate();
+        //     Equal(expected := TRUE, actual :=  pusher.GetState() = PusherState#Retracting);
+        //     Equal(expected := FALSE, actual :=  sig.IsOn());
+        //     pusher.Evaluate();
+        //     Equal(expected := TRUE, actual :=  pusher.GetState() = PusherState#Retracted);
+        // END_METHOD
 
     END_CLASS
 
