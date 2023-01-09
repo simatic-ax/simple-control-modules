@@ -5,31 +5,35 @@
 ## Install this package
 
 Enter:
+
 ```cli
 apax add @simatic-ax/simple-control-modules
 ```
-> to install this package you need to login into the GitHub registry. You'll find more information [here](https://github.com/simatic-ax/.github/blob/main/docs/personalaccesstoken.md) 
+
+> to install this package you need to login into the GitHub registry. You'll find more information [here](https://github.com/simatic-ax/.github/blob/main/docs/personalaccesstoken.md)
 
 ## Namespace
-```
+
+```iec-st
 Simatic.Ax.SimpleControlModules
 ```
 
 ## Encoder
+
 ### Encoder A
-The EncoderA counts the rising and falling edges of a binary signal. 
- 
+
+The EncoderA counts the rising and falling edges of a binary signal.
+
 ### EncoderAB
 
 The EncoderAB is similar to EnocderA but it counts the rising and falling edges of two 90 dregree phase shifted binary signals (SignalA and SignalB). So the counting direction is evaluated automatically.
 
-
-### Methods of EncoderA and EncoderAB:
+### Methods of EncoderA and EncoderAB
 
 |||
 |-|-|
 | Evaluate() | Evaluate the SignalA for rising and falling edges and counts them
-| GetValue() : DINT 	 | Returns the actual counter value |
+| GetValue() : DINT   | Returns the actual counter value |
 | RelativeCount() | Retunrs the relative counter value |
 | Reset | Reset the counter value to 0
 | ResetRelative() | Reset the relative counter value to 0 |
@@ -61,7 +65,8 @@ VAR_GLOBAL
 END_VAR
 ```
 
-### Example:
+### Example
+
 ```iec-st
 USING Siemens.Ax.Io.Input;
 USING Simatic.Ax.SimpleControlModules;
@@ -101,6 +106,7 @@ END_PROGRAM
 ```
 
 ## Counter
+
 The Counter counts with the methods CountForward(increment : DINT) or CountReverse(decrement : DINT). The parameter `increment` or `decrement` is 1 by default.
 
 Methods:
@@ -114,10 +120,10 @@ Methods:
 | UpperLimitReached() : BOOL | Returns TRUE when the counter value >= upper limit |
 | LowerLimitReached() : BOOL | Returns TRUE when the counter value <= lower limit |
 
-
 ## Contribution
 
 Thanks for your interest in contributing. Anybody is free to report bugs, unclear documentation, and other problems regarding this repository in the Issues section or, even better, is free to propose any changes to this repository using Merge Requests.
+
 ## License and Legal information
 
 Please read the [Legal information](LICENSE.md)
