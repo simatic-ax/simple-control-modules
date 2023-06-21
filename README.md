@@ -14,7 +14,7 @@ apax add @simatic-ax/simple-control-modules
 
 ## Namespace
 
-```iec-st
+```sh
 Simatic.Ax.SimpleControlModules
 ```
 
@@ -119,6 +119,15 @@ Methods:
 | CountReverse(decrement : DINT) | Count reverse by decrement (default 1) |
 | UpperLimitReached() : BOOL | Returns TRUE when the counter value >= upper limit |
 | LowerLimitReached() : BOOL | Returns TRUE when the counter value <= lower limit |
+
+### Markdownlint-cli
+
+This workspace will be checked by the [markdownlint-cli](https://github.com/igorshubovych/markdownlint-cli) (there is also documented ho to install the tool) tool in the CI workflow automatically.  
+To avoid, that the CI workflow fails because of the markdown linter, you can check all markdown files locally by running the markdownlint with:
+
+```sh
+markdownlint **/*.md --fix
+```
 
 ## Contribution
 
