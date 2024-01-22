@@ -8,9 +8,21 @@ NAMESPACE Simatic.Ax.SimpleControlModules.Test
         
         VAR
             enc : EncoderA;
+            encStateLess : EncoderA;
             sig : BinSignal;
+            sigStateLess : BinSignal;
             signalMock : BinSignalQMock;
+            signalMockStateLess : BinSignalQMock;
         END_VAR
+
+        {TestSetup}
+        METHOD PUBLIC MyTestSetup
+        // Will be called before MyTest_A AND before Test_B are executed
+            enc := encStateLess;
+            sig := sigStateLess;
+            signalMock := signalMockStateLess;
+        END_METHOD
+
 
         {Test}
         // Encoder Forward Test

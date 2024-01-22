@@ -8,9 +8,19 @@ NAMESPACE Simatic.Ax.SimpleControlModules.Test
     CLASS TestClassBulb
         VAR PRIVATE
             b : Bulb;
+            bStateLess : Bulb;
             o : BinOutput;    
+            oStateLess : BinOutput;    
             q : BOOL;
         END_VAR
+
+        {TestSetup}
+        METHOD PUBLIC MyTestSetup
+        // Will be called before MyTest_A AND before Test_B are executed
+            b := bStateLess;
+            o := oStateLess;
+            q := FALSE;
+        END_METHOD
 
         {Test}
         METHOD PUBLIC TestSwitchOn

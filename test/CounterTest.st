@@ -6,8 +6,14 @@ NAMESPACE Simatic.Ax.SimpleControlModules.Test
     CLASS TestCounterClass
         VAR
             cnt : Counter;
-
+            cntStateLess : Counter;
         END_VAR
+
+        {TestSetup}
+        METHOD PUBLIC MyTestSetup
+            // Will be called before MyTest_A AND before Test_B are executed
+            cnt := cntStateLess;
+        END_METHOD
 
         {Test}
         METHOD PUBLIC Count_Forward_3_times_Expect_3;
