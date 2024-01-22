@@ -8,7 +8,7 @@ NAMESPACE Simatic.Ax.SimpleControlModules.Test
     CLASS Test_PusherTimeBased // IMPLEMENTS AxUnit.Mocking.IPayload
         
         VAR
-            pusher : PusherTimeBased := (OnDuration := T#5s);
+            pusher : PusherTimeBased;
             pusherStateLess : PusherTimeBased := (OnDuration := T#5s);
             sig : BinOutput;
             sigStateLess : BinOutput;

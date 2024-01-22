@@ -14,7 +14,7 @@ NAMESPACE Simatic.Ax.SimpleControlModules
         END_VAR
     
         METHOD PUBLIC Evaluate
-            _tonOnDuration(signal := _state = PusherState#Pushing);
+            _tonOnDuration(signal := _state = PusherState#Pushing, Duration := OnDuration);
             
             CASE _state OF
                 PusherState#Retracted : 
