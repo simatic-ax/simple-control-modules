@@ -15,14 +15,14 @@ variables:
     - --debug
 targets:
   - '1500'
-  - 'axunit-llvm'
+  - 'llvm'
 # Dependencies
 devDependencies:
-  '@ax/sdk': 4.0.3
+  '@ax/sdk': 2311.0.1
   "@simatic-ax/snippetscollection": 0.1.3
 dependencies:
-  "@simatic-ax/io": 4.0.1
-  "@ax/system-timer": 4.0.1
+  "@simatic-ax/io": 5.0.0
+  "@ax/system-timer": 6.0.94
 registries:
   '@simatic-ax': 'https://npm.pkg.github.com/'
 # Files which 'apax pack' will include
@@ -33,3 +33,5 @@ files:
   - 'snippets'
   - 'docs'
   - 'src'
+installStrategy: strict
+apaxVersion: 3.1.0

@@ -7,14 +7,25 @@ NAMESPACE Simatic.Ax.SimpleControlModules.Test
         
         VAR
             enc : EncoderAB;
+            encStateLess : EncoderAB;
             sigA : BinSignal;
+            sigAStateLess : BinSignal;
             sigB : BinSignal;
+            sigBStateLess : BinSignal;
             //signalMock : BinSignalQMockAB;
 
             signalsA : ARRAY[0..13] OF BOOL := [FALSE, TRUE, TRUE, FALSE, FALSE, TRUE, TRUE, FALSE, FALSE, TRUE, TRUE, FALSE, FALSE, TRUE];
             signalsB : ARRAY[0..13] OF BOOL := [FALSE, FALSE, TRUE, TRUE, FALSE, FALSE, TRUE, TRUE, FALSE, FALSE, TRUE, TRUE, FALSE, FALSE];
 
         END_VAR
+
+        {TestSetup}
+        METHOD PUBLIC MyTestSetup
+        // Will be called before MyTest_A AND before Test_B are executed
+            enc := encStateLess;
+            sigA := sigAStateLess;
+            sigB := sigBStateLess;
+        END_METHOD
 
         {Test}
         // Encoder Forward Test
