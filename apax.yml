@@ -21,14 +21,16 @@ targets:
   - 'llvm'
 # Install settings
 installStrategy: strict
-apaxVersion: 3.2.1
+apaxVersion: 3.5.0
+catalogs:
+  "@ax/simatic-ax": ^2504.0.0
 # Dependencies
 devDependencies:
-  '@ax/sdk': ^2411.0.0
+  "@ax/sdk": 2504.0.0
   "@simatic-ax/snippetscollection": ^1.0.0
 dependencies:
-  "@simatic-ax/io": ^7.1.0
-  "@ax/system-timer": ^8.0.7
+  "@ax/system-timer": 10.0.24
+  "@simatic-ax/io": ^9.0.0
 # Files which 'apax pack' will include
 files:
   - 'README.md'
@@ -36,5 +38,5 @@ files:
   - 'changelog.md'
   - 'snippets'
   - 'docs'
-  - 'src' # ship library as src-files
-  # - 'bin'    # ship library as bin-files
+  # - 'src' # ship library as src-files
+  - 'bin' # ship library as bin-files

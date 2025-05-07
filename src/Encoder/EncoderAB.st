@@ -5,16 +5,16 @@ NAMESPACE Simatic.Ax.SimpleControlModules
     /// </summary>
     CLASS EncoderAB EXTENDS AbstractEncoder
         VAR PUBLIC
-            SignalA : IBinSignal;
-            SignalB : IBinSignal;
+            SignalA : ItfBinSignal;
+            SignalB : ItfBinSignal;
         END_VAR
 
         /// Evaluate encoder for A B track
         METHOD PUBLIC OVERRIDE Evaluate
 
             VAR_TEMP
-                _A : IBinSignal;
-                _B : IBinSignal;
+                _A : ItfBinSignal;
+                _B : ItfBinSignal;
             END_VAR
             IF (_countMode = CountMode#Forward) THEN
                 _A := SignalA;
@@ -47,8 +47,8 @@ NAMESPACE Simatic.Ax.SimpleControlModules
         /// Returns Encoder signal A and/or B made pulse forward
         METHOD ForwardPulse : BOOL
             VAR_INPUT
-                A : IBinSignal;
-                B : IBinSignal;
+                A : ItfBinSignal;
+                B : ItfBinSignal;
             END_VAR
             ForwardPulse := A.QRis() AND NOT(B.Q())
                 OR A.Q() AND B.QRis()
@@ -62,8 +62,8 @@ NAMESPACE Simatic.Ax.SimpleControlModules
         /// Returns Encoder signal A and/or B made pulse reverse
         METHOD ReversePulse : BOOL
             VAR_INPUT
-                A : IBinSignal;
-                B : IBinSignal;
+                A : ItfBinSignal;
+                B : ItfBinSignal;
             END_VAR
             ReversePulse := A.QRis() AND B.Q()
                 OR NOT(A.Q()) AND B.QRis()
