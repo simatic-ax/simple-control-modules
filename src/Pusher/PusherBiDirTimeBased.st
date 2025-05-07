@@ -5,8 +5,8 @@ NAMESPACE Simatic.Ax.SimpleControlModules
     CLASS PusherBiDirTimeBased IMPLEMENTS IPusher
         
         VAR PUBLIC
-            ControlPush : IBinOutput;
-            ControlRetract : IBinOutput;
+            ControlPush : ItfBinOutput;
+            ControlRetract : ItfBinOutput;
             OnDuration : TIME;
             OffDuration : TIME;
             AutoRetract : BOOL := TRUE;
