@@ -5,7 +5,7 @@ NAMESPACE Simatic.Ax.SimpleControlModules
     CLASS PusherTimeBased IMPLEMENTS IPusher
         
         VAR PUBLIC
-            ControlPush : ItfBinOutput;
+            ControlPush : IBinOutput;
             OnDuration : TIME;
         END_VAR
         VAR

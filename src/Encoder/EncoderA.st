@@ -7,7 +7,7 @@ NAMESPACE Simatic.Ax.SimpleControlModules
     CLASS EncoderA EXTENDS AbstractEncoder
         
         VAR PUBLIC
-            SignalA : ItfBinSignal;
+            SignalA : IBinSignal;
         END_VAR
         
         
@@ -30,7 +30,7 @@ NAMESPACE Simatic.Ax.SimpleControlModules
         /// A : A signal from encoder
         METHOD ForwardPulse : BOOL
             VAR_INPUT
-                A : ItfBinSignal;
+                A : IBinSignal;
             END_VAR
             ForwardPulse := A.QRis() OR A.QFal();
         END_METHOD
