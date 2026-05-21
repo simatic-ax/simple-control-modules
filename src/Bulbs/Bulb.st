@@ -7,7 +7,7 @@ NAMESPACE Simatic.Ax.SimpleControlModules
     /// Class to handle a bulb
     CLASS Bulb
         VAR PUBLIC
-            Output : ItfBinOutput;        
+            Output : IBinOutput;        
         END_VAR
 
         /// Switch the lamp on (value := TRUE) or off (value := FALSE)
