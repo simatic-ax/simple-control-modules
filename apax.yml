@@ -23,7 +23,7 @@ targets:
 installStrategy: strict
 apaxVersion: 3.5.0
 catalogs:
-  "@ax/simatic-ax": ^2504.0.0
+  "@ax/simatic-ax": ^2510.0.0
 # Dependencies
 devDependencies:
   "@ax/sdk": ^2504.0.0
