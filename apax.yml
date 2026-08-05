@@ -30,7 +30,7 @@ devDependencies:
   "@simatic-ax/snippetscollection": ^1.0.0
 dependencies:
   "@ax/system-timer": ^10.0.24
-  "@simatic-ax/io": ^9.0.0
+  "@simatic-ax/io": ^11.0.0
 # Files which 'apax pack' will include
 files:
   - 'README.md'
